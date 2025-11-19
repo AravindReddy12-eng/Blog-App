@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block hero %}
+<section class="text-white text-center py-5" style="background:#b1443c; margin-top: 80px;">
+  <!-- Section1: Hero Carousel -->
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+    <div class="carousel-inner">
+      <!-- Slide1: Lifestyle -->
+      <div class="carousel-item active" style="background-color: #f57c00;">
+        <div class="container py-5 text-white text-center">
+          <h1 class="display-5 fw-bold mb-3">Publish your passions, your way</h1>
+          <p class="lead mb-4">Create a unique and beautiful blog easily.</p>
+          <a href="{{ url_for('login') }}" class="btn btn-light btn-lg fw-bold me-2">Sign In</a>
+          <a href="{{ url_for('create') }}" class="btn btn-outline-light btn-lg fw-bold">Create Blog</a>
+        </div>
+      </div>
+      <!-- Slide2: Technology -->
+      <div class="carousel-item" style="background-color: #198754;">
+        <div class="container py-5 text-white text-center">
+          <h1 class="display-5 fw-bold mb-3">Share your tech journey</h1>
+          <p class="lead mb-4">Create a unique and beautiful blog easily.</p>
+          <a href="{{ url_for('login') }}" class="btn btn-light btn-lg fw-bold me-2">Sign In</a>
+          <a href="{{ url_for('create') }}" class="btn btn-outline-light btn-lg fw-bold">Create Blog</a>
+        </div>
+      </div>
+      <!-- Slide3: Travel -->
+      <div class="carousel-item" style="background-color: #6c757d;">
+        <div class="container py-5 text-white text-center">
+          <h1 class="display-5 fw-bold mb-3">Explore the world through blogging</h1>
+          <p class="lead mb-4">Create a unique and beautiful blog easily.</p>
+          <a href="{{ url_for('login') }}" class="btn btn-light btn-lg fw-bold me-2">Sign In</a>
+          <a href="{{ url_for('create') }}" class="btn btn-outline-light btn-lg fw-bold">Create Blog</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="parallax-video">
+  <video autoplay muted loop playsinline disablePictureInPicture id="parallax-video">
+    <source src="{{ url_for('static', filename='videos/parallax-bg.mp4') }}" type="video/mp4">
+  </video>
+</div>
+
+<section class="py-5 text-white text-center" style="background:#f57c00;">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Start Your Blogging Journey</h2>
+    <p class="mb-0">Share your thoughts, stories, and ideas with the world.</p>
+  </div>
+</section>
+<section class="py-5 text-white text-center" style="background:#b1443c;">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Customize Your Blog</h2>
+    <p class="mb-0">Personalize your blog with your own style and content.</p>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}
+<main class="container my-4">
+  {% if not current_user.is_authenticated %}
+    <!-- About Me, Popular Posts, Tags in horizontal order -->
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-4 mb-4">
+          <div class="card-body text-center">
+            <h5 class="card-title fw-bold mb-2">About Me</h5>
+            <p class="card-text mb-0" style="font-size:1rem;">
+              Hi! I'm Aravind, a passionate Python developer building end-to-end ML projects and modern web apps.<br>
+              I love coding, cricket, and sharing tips for interviews and backend development.<br>
+              Welcome to my learning adventure!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-4 mb-4">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Popular Posts</h5>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#" class="text-decoration-none">Post Title 1</a></li>
+              <li><a href="#" class="text-decoration-none">Post Title 2</a></li>
+              <li><a href="#" class="text-decoration-none">Post Title 3</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-4 mb-4">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Tags</h5>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-primary">Technology</span>
+              <span class="badge bg-secondary">Lifestyle</span>
+              <span class="badge bg-success">Travel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% else %}
+    <!-- All posts created by all users -->
+    <h2 class="mb-4 fw-bold">Latest Posts</h2>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {% for post in posts %}
+        <div class="col">
+          <div class="card shadow-sm border-0 mb-4 rounded-4 hover-shadow flex-row flex-wrap">
+            <div class="card-body d-flex flex-column justify-content-between" style="flex: 1 1 auto;">
+              <div>
+                <h4 class="card-title fw-bold mb-2">{{ post.title }}</h4>
+                <p class="mb-1 text-muted small">By {{ post.author.username }} | {{ post.category.name }}</p>
+                <p class="card-text mb-2">{{ post.body[:140] }}{% if post.body|length > 140 %}...{% endif %}</p>
+              </div>
+              <a href="{{ url_for('view_post', post_id=post.id) }}" class="btn btn-outline-primary align-self-start mt-2">Read More</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</main>
+{% endblock %}

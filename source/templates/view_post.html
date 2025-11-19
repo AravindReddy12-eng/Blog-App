@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} - MyBlog{% endblock %}
+{% block content %}
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+  <div class="card-body">
+    <h1 class="card-title">{{ post.title }}</h1>
+    <p class="text-muted">By {{ post.author.username }} | {{ post.category.name }}</p>
+    <hr>
+    <p class="post-body">{{ post.body }}</p>
+    {% if current_user.is_authenticated and current_user == post.author %}
+      <a href="{{ url_for('update_post', post_id=post.id) }}" class="btn btn-warning me-2">Edit</a>
+      <form method="POST" action="{{ url_for('delete_post', post_id=post.id) }}" style="display:inline;">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
