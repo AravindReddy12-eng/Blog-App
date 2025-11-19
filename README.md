@@ -1,5 +1,6 @@
+#Blog App
 
-**Blog App**
+This web application was developed using the Flask web framework. The blog app enables users to create, manage, and share posts with customizable categories, user authentication, and a dynamic homepage, providing a seamless and engaging blogging experience.
 
 ![image](source/screenshots/screenshot1.png)
 ![image](source/screenshots/screenshot2.png)
