@@ -1,7 +1,7 @@
 
 **Blog App**
 
-![image](screenshots/screenshot1.png)
+![image](source/screenshots/screenshot1.png)
 ![image](screenshots/screenshot2.png)
 ![image](screenshots/screenshot3.png)
 ![image](screenshots/screenshot4.png)
