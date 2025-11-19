@@ -17,5 +17,9 @@ This web application was developed using the Flask web framework. The blog app e
 - SQLite (Database)
 
 ## Getting Started
-### Prerequisites- Python3.8 or higher- Flask- SQLAlchemy- Flask-Login
-### Installation1. Clone the repository:
+
+### Installation1. Clone the repository: git clone repository link
+- Create a virtual environment
+- install required dependencies(requirements.txt)
+- run the app: python app.py
+
