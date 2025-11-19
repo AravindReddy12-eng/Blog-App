@@ -1,4 +1,4 @@
-#Blog App
+# Blog App
 
 This web application was developed using the Flask web framework. The blog app enables users to create, manage, and share posts with customizable categories, user authentication, and a dynamic homepage, providing a seamless and engaging blogging experience.
 
@@ -8,10 +8,14 @@ This web application was developed using the Flask web framework. The blog app e
 ![image](source/screenshots/screenshot4.png)
 ![image](source/screenshots/screenshot5.png)
 
-## Features- User registration and login- Create, edit, and delete blog posts- Categorize posts by technology, lifestyle, travel, and more- Dynamic homepage with rotating themes- Responsive design for all devices## Technologies Used- Python (Flask)
+## Features- User registration and login- Create, edit, and delete blog posts- Categorize posts by technology, lifestyle, travel, and more- Dynamic homepage with rotating themes- Responsive design for all devices
+
+## Technologies Used- Python (Flask)
 - SQLAlchemy (ORM)
 - Jinja2 (Templating)
 - Bootstrap (Frontend)
 - SQLite (Database)
 
-## Getting Started### Prerequisites- Python3.8 or higher- Flask- SQLAlchemy- Flask-Login### Installation1. Clone the repository:
+## Getting Started
+### Prerequisites- Python3.8 or higher- Flask- SQLAlchemy- Flask-Login
+### Installation1. Clone the repository:
